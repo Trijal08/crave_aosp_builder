@@ -36,7 +36,7 @@ on:
       LOCAL_MANIFEST:
         description: "Personal local manifest [repository or raw]:"
         required: true
-        default: 'https://github.com/Gtajisan/local_manifests'
+        default: 'https://github.com/sounddrill31/local_manifests'
       LOCAL_MANIFEST_BRANCH:
         description: "Personal local manifest's branch:"
         required: false
@@ -44,7 +44,7 @@ on:
       DEVICE_NAME:
         description: "Device's codename:"
         required: true
-        default: "Mi439_4_19"
+        default: "oxygen"
       PRODUCT_NAME:
         description: "Product to build:"
         required: true
@@ -171,14 +171,12 @@ jobs:
         ;;
         esac
 
-        if [[ "${{ github.event.inputs.PRODUCT_NAME }}" == "*_*" &&! ("${{ github.event.inputs.PRODUCT_NAME }}" == "gsi_*" || "${{ github.event.inputs.PRODUCT_NAME }}" == "sdk_*") ]]; then
+        if [[ ${{ github.event.inputs.PRODUCT_NAME }} == *_* ]] && [[ ${{ github.event.inputs.PRODUCT_NAME }} != gsi_* ]] && [[ ${{ github.event.inputs.PRODUCT_NAME }} != sdk_* ]]; then
           LUNCH="lunch ${{ github.event.inputs.PRODUCT_NAME }}-${{ github.event.inputs.BUILD_TYPE }}"
-        else
-          if  [[ "${{ github.event.inputs.BASE_PROJECT }}"  == "RisingOS 14" && "${{ github.event.inputs.BUILD_DIFFERENT_ROM }}" == "echo 'Build Starting!'" ]]; then
+        elif [[ "${{ github.event.inputs.BASE_PROJECT }}" == "RisingOS 14" ]] && [[ "${{ github.event.inputs.BUILD_DIFFERENT_ROM }}" == "echo 'Build Starting!'" ]]; then
             LUNCH="riseup ${{ github.event.inputs.PRODUCT_NAME }} ${{ github.event.inputs.BUILD_TYPE }}"
-          else
+        else
             LUNCH="breakfast ${{ github.event.inputs.PRODUCT_NAME }} ${{ github.event.inputs.BUILD_TYPE }}"
-          fi
         fi
 
         echo "Building on ${{ github.event.inputs.BASE_PROJECT }} project"
@@ -446,9 +444,8 @@ jobs:
         /opt/crave/resync.sh  && \
         
         # Set up build environment
-        export BUILD_USERNAME=FARHAN ; \
+        export BUILD_USERNAME=FARHAN•xd ; \
         export BUILD_HOSTNAME=crave ; \
-        export MITHORIUM_QCOM_HALS_DEFAULT_VARIANT=LA.UM.9.6.4.r1-05500-89xx.QSSI13.0 ; \
         source build/envsetup.sh && \
 
         echo "Repository: ${{ github.repository }}"; \
