@@ -40,15 +40,15 @@ on:
       LOCAL_MANIFEST_BRANCH:
         description: "Personal local manifest's branch:"
         required: false
-        default: 'master'
+        default: 'RisingOS-4.x'
       DEVICE_NAME:
         description: "Device's codename:"
         required: true
-        default: "husky"
+        default: "Mi439_4_19"
       PRODUCT_NAME:
         description: "Product to build:"
         required: true
-        default: "lineage_husky"
+        default: "lineage_Mi439_4_19"
       BUILD_COMMAND:
         description: 'Command to be used for compiling:'
         required: true
