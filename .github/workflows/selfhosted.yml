@@ -48,7 +48,7 @@ on:
       PRODUCT_NAME:
         description: "Product to build:"
         required: true
-        default: "lineage_Mi439_4_19"
+        default: "rising_Mi439_4_19"
       BUILD_COMMAND:
         description: 'Command to be used for compiling:'
         required: true
