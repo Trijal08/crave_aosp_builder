@@ -172,7 +172,7 @@ jobs:
         esac
 
         if [[ "${{ github.event.inputs.BASE_PROJECT }}" == "RisingOS 14" ]] && [[ "${{ github.event.inputs.BUILD_DIFFERENT_ROM }}" == "echo 'Build Starting!'" ]]; then
-            LUNCH="riseup ${{ github.event.inputs.PRODUCT_NAME }} ${{ github.event.inputs.BUILD_TYPE }}"
+            LUNCH="riseup ${{ github.event.inputs.DEVICE_NAME }} ${{ github.event.inputs.BUILD_TYPE }}"
         else
             LUNCH="breakfast ${{ github.event.inputs.PRODUCT_NAME }} ${{ github.event.inputs.BUILD_TYPE }}"
         fi
