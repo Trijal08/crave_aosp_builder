@@ -52,7 +52,7 @@ on:
       BUILD_COMMAND:
         description: 'Command to be used for compiling:'
         required: true
-        default: 'riseup'
+        default: 'rise b'
       BUILD_TYPE:
         description: 'Type of build:'
         required: true
