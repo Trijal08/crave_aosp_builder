@@ -444,9 +444,14 @@ jobs:
         /opt/crave/resync.sh  && \
         
         # Set up build environment
-        export BUILD_USERNAME=GamerBoy1234294 ; \
+        export BUILD_USERNAME=GamerBoy1234•RisingToSuccess ; \
         export BUILD_HOSTNAME=crave ; \
         export MITHORIUM_QCOM_HALS_DEFAULT_VARIANT=LA.UM.9.6.4.r1-05500-89xx.QSSI13.0 ;\
+        cd vendor/addons
+        git fetch 14.0 --unshallow
+        git fetch https://github.com/RisingTechOSS/android_vendor_addons.git fourteen
+        git cherry-pick dbd659e
+        cd ../..
         source build/envsetup.sh && \
 
         echo "Repository: ${{ github.repository }}"; \
