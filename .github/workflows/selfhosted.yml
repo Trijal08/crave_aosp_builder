@@ -453,8 +453,11 @@ jobs:
         echo "Run ID: ${{ github.run_id }}"; \
 
         # Build the ROM
-        $LUNCH && \
+        riseup ${{ github.event.inputs.PRODUCT_NAME }} ${{ github.event.inputs.BUILD_TYPE }} && \
         make installclean && \
+        cd kernel/xiaomi/mithorium-4.19/kernel && \
+        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash - && \
+        croot && \
         ${{ github.event.inputs.BUILD_COMMAND }}"
       timeout-minutes: 960
 
