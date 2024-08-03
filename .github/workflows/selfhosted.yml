@@ -437,9 +437,6 @@ jobs:
           curl -o .repo/local_manifests ${{ github.event.inputs.LOCAL_MANIFEST }}; \
           echo "Git clone failed, downloading through curl instead..."; \
         fi \
-
-        # Use git-lfs for all repo tasks
-        repo forall -c 'git lfs install && git lfs pull && git lfs checkout' 
         
         # Sync the repositories
         /opt/crave/resync.sh  && \
