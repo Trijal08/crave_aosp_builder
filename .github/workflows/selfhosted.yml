@@ -428,7 +428,7 @@ jobs:
            export CLEAN="clean"
         fi
 
-        crave run --clean --no-patch -- "curl https://raw.githubusercontent.com/Trijal08/build_scripts/RisingOS-4.x/script.sh | bash"
+        crave run --no-patch --${CLEAN} "curl https://raw.githubusercontent.com/Trijal08/build_scripts/RisingOS-4.x/script.sh | bash"
       timeout-minutes: 960
 
       # Send Build 'status' notification (Success)
