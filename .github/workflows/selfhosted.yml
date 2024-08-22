@@ -49,7 +49,7 @@ on:
       PRODUCT_NAME:
         description: "Product to build:"
         required: true
-        default: "sigma_Mi439_4_19"
+        default: "sigma_Mi439_4_19-ap2a"
       BUILD_COMMAND:
         description: 'Command to be used for compiling:'
         required: true
